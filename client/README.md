@@ -24,6 +24,69 @@
 - User profile and order history
 - Admin panel for managing illustrations and orders
 
+## File Structure
+
+```
+├── components/
+│   ├── Layout/
+│   │   ├── HamburgerMenu.tsx
+│   │   └── Layout.tsx
+│   ├── HeroImage/
+│   │   ├── HeroImage.tsx
+│   │   └── HeroImageCarousel.tsx
+│   ├── Illustration/
+│   │   ├── IllustrationCard.tsx
+│   │   └── IllustrationList.tsx
+│   ├── ShoppingCart/
+│   │   ├── CartItem.tsx
+│   │   └── ShoppingCart.tsx
+│   ├── User/
+│   │   ├── LoginForm.tsx
+│   │   ├── RegisterForm.tsx
+│   │   └── UserProfile.tsx
+│   └── SocialMediaFeeds/
+│       ├── InstagramFeed.tsx
+│       ├── TwitterFeed.tsx
+│       └── YouTubeFeed.tsx
+│
+├── pages/
+│   ├── index.tsx
+│   ├── illustrations.tsx
+│   ├── illustration/[id].tsx
+│   ├── cart.tsx
+│   ├── profile.tsx
+│   ├── admin.tsx
+│   ├── login.tsx
+│   ├── register.tsx
+│   ├── forgot-password.tsx
+│   └── reset-password.tsx
+│
+├── public/
+│   └── images/
+│
+├── services/
+│   ├── api.ts
+│   ├── auth.ts
+│   ├── illustrations.ts
+│   ├── orders.ts
+│   └── socialMedia.ts
+│
+├── styles/
+│   └── tailwind.config.js
+│
+├── utils/
+│   ├── types.ts
+│   └── utils.ts
+│
+├── .env
+├── .gitignore
+├── next.config.js
+├── package.json
+├── README.md
+└── tsconfig.json
+
+```
+
 ## User Interface
 
 - Landing page (home) with:
@@ -115,3 +178,7 @@
 
 - Frontend and backend deployed on Vercel
 - MongoDB hosted on MongoDB Atlas
+
+```
+
+```
