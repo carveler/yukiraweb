@@ -1,38 +1,117 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Technical Specification for Anime Illustrator E-commerce Website
 
-## Getting Started
+## Technology Stack
 
-First, run the development server:
+**Frontend:** Next.js (React) with TypeScript and Tailwind CSS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Backend:** Node.js with Express
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Database:** MongoDB
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**Authentication:** Firebase Authentication
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**Image Storage:** Cloudinary
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Payment Gateway:** Stripe
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- User authentication (login, registration, password reset)
+- Browse and search for illustrations
+- Detailed illustration pages
+- Shopping cart and checkout
+- Secure payment processing
+- User profile and order history
+- Admin panel for managing illustrations and orders
 
-To learn more about Next.js, take a look at the following resources:
+## User Interface
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Landing page (home) with:
+  - Hamburger menu for navigation
+  - Hero image with automatic image rotation
+  - Featured illustrations and search functionality
+  - Embedded Twitter, Instagram, and YouTube feeds
+- Illustration browsing with filtering and sorting
+- Detailed illustration page with description, price, and add-to-cart functionality
+- Shopping cart and checkout flow
+- User profile and order history page
+- Admin panel for managing illustrations and orders
+- Login, registration, and password reset pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Database Schema
 
-## Deploy on Vercel
+**User**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ID
+- Email
+- Name
+- Role (customer, admin)
+- Created At
+- Updated At
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Illustration**
+
+- ID
+- Title
+- Description
+- Price
+- Image URL
+- Thumbnail URL
+- Tags (array of strings)
+- Created At
+- Updated At
+
+**Order**
+
+- ID
+- User ID (foreign key)
+- Illustration ID (foreign key)
+- Quantity
+- Total Price
+- Shipping Address
+- Billing Address
+- Payment Status
+- Created At
+- Updated At
+
+## API Endpoints
+
+**Auth**
+
+- POST /auth/register
+- POST /auth/login
+- POST /auth/forgot-password
+- POST /auth/reset-password
+
+**Illustrations**
+
+- GET /illustrations
+- GET /illustrations/:id
+- POST /illustrations (admin only)
+- PUT /illustrations/:id (admin only)
+- DELETE /illustrations/:id (admin only)
+
+**Orders**
+
+- GET /orders (user or admin)
+- GET /orders/:id (user or admin)
+- POST /orders
+- PUT /orders/:id (admin only)
+- DELETE /orders/:id (admin only)
+
+## Third-Party Services
+
+- Firebase Authentication for user authentication
+- Cloudinary for image storage and resizing
+- Stripe for payment processing
+- SendGrid for transactional emails (password reset, order confirmation)
+
+## Testing
+
+- Unit tests with Jest and React Testing Library for frontend components
+- Integration tests with Supertest for backend API endpoints
+
+## Deployment
+
+- Frontend and backend deployed on Vercel
+- MongoDB hosted on MongoDB Atlas
